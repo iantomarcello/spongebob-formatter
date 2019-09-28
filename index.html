@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>SpOnGeBob TeXt FoRmAtTeR | Progress Web App</title>
+    <meta name="description" content="A progressive web app that formats text to interval uppercases.">
+    <meta name="theme-color" content="#0F68EA">
+    <meta name="apple-mobile-web-app-status-bar" content="#0F68EA">
+    <meta property="og:title" content="SpOnGeBob TeXt FoRmAtTeR | Progress Web App">
+  	<meta property="og:description" content="A progressive web app that formats text to interval uppercases.">
+  	<meta property="og:type" content="website">
+  	<meta property="og:url" content="">
+  	<meta property="og:image" content="images/icon-512.png">
+  	<meta property="og:image:width" content="350">
+    <meta name="twitter:title" content="SpOnGeBob TeXt FoRmAtTeR | Progress Web App">
+    <meta name="twitter:description" content=" A progressive web app that formats text to interval uppercases.">
+    <meta name="twitter:image" content="images/icon-512.png">
+    <meta name="twitter:card" content="summary_large_image">
+  	<meta name="twitter:widgets:theme" content="light">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="images/icon-192.png">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.min.css">
+  </head>
+  <body>
+    <main>
+      <section id="banner">
+        <div class="banner-container">
+          <img src="images/logo.svg" alt="Logo">
+          <div class="deco-container"></div>
+        </div>
+      </section>
+      <section id="interface">
+        <div class="interface-container">
+          <div id="input">
+            <div class="input-container">
+              <div class="input-wrapper">
+                <textarea name="input" id="input-textarea" placeholder="Input goes here"></textarea>
+                <span id="input-message"></span>
+              </div>
+            </div>
+          </div>
+          <div id="buttons">
+            <div class="buttons-container">
+              <div id="format">
+                <div class="format-container">
+                  <div class="format-button">
+                    <input type="radio" name="format" value="0" class="format-button-input" checked>
+                    <span class="format-button-label">Normal</span>
+                  </div>
+                  <div class="format-button">
+                    <input type="radio" name="format" value="1" class="format-button-input" disabled>
+                    <span class="format-button-label">SpOnGeBoB</span>
+                  </div>
+                  <div class="format-button">
+                    <input type="radio" name="format" value="2" class="format-button-input" disabled>
+                    <span class="format-button-label">sPoNgEbOb</span>
+                  </div>
+                  <div class="format-floater"></div>
+                </div>
+              </div>
+              <div id="action" class="disabled">
+                <div class="action-container">
+                  <button disabled type="button" id="action-button-copy" class="action-button" name="action">
+                    <span>Copy</span>
+                  </button>
+                  <button disabled type="button" id="action-button-share" class="action-button" hidden name="action">
+                    <span>Share</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <div class="footer-container">
+            <a href="https://github.com/iantomarcello/" target="_blank" id="footer-link"></a>
+          </div>
+        </footer>
+      </section>
+    </main>
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>

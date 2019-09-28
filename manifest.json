@@ -1,0 +1,20 @@
+{
+  "name": "Spongebob Text Formatter",
+  "short_name": "Spongebob Formatter",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0F68EA",
+  "theme_color": "#0F68EA",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./images/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }, {
+      "src": "./images/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
