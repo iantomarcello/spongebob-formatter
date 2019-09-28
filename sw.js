@@ -1,5 +1,5 @@
 //!minOnSave
-const staticCache = "staticCache-v1";
+const staticCache = "staticCache-v2";
 const cacheAssets = [
   "./",
   "./index.html",
@@ -8,6 +8,9 @@ const cacheAssets = [
   "./images/logo.svg",
   "./images/bg-deco.svg",
   "./images/footer.svg",
+  "./images/icon-192.png",
+  "./images/icon-512.png",
+  "./manifest.json",
   "https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap"
 ];
 
@@ -21,6 +24,14 @@ self.addEventListener("install", ev => {
 
 self.addEventListener("activate", ev => {
   console.log("Service Worker activated");
+  ev.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys.filter(key => key !== staticCache)
+        .map(key => caches.delete(key))
+      );
+    })
+  )
 })
 
 self.addEventListener("fetch", ev => {
