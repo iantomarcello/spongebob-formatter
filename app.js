@@ -118,6 +118,8 @@ const actionCopy = () => {
   input.setSelectionRange(0, 99999); /*For mobile devices*/
   document.execCommand("copy");
   messageInvoke("Message copied!");
+  if (window.getSelection) {window.getSelection().removeAllRanges();}
+  else if (document.selection) {document.selection.empty();}
 }
 
 /**
