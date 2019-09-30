@@ -1,5 +1,5 @@
 //!minOnSave
-const staticCache = "staticCache-v2";
+const staticCache = "staticCache-v1";
 const cacheAssets = [
   "./",
   "./index.html",
