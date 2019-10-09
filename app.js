@@ -85,28 +85,31 @@ const messageInvoke = (message) => {
 const formatText = (format) => {
   let array = [...input.value.toLowerCase()];
   let formatted;
+  let isUppercase = new Boolean;
   input.readOnly = true;
-  switch (format) {
-    case "1":
-      formatted = array.map((e,i) => {
-        if ( i % 2 == 0 ) return e.toUpperCase()
-        return e;
-      })
-      input.value = formatted.join("");
-      break;
-    case "2":
-      formatted = array.map((e,i) => {
-        if ( i % 2 != 0 ) return e.toUpperCase()
-        return e;
-      })
-      input.value = formatted.join("");
-      break;
-    case "0":
-    default:
-      formatted = array;
-      input.readOnly = false;
-      input.value = normal;
+  if ( format == 0 ) {
+    formatted = array;
+    input.readOnly = false;
+    input.value = normal;
+    return;
+  } else if ( format == "1" ) {
+    isUppercase = false;
+  } else if ( format == "2" ) {
+    isUppercase = true;
   }
+
+  formatted = array.map((e,i) => {
+    if ( e  == " " ) return e;
+    if ( isUppercase ) {
+      isUppercase = false;
+      return e.toUpperCase();
+    } else {
+      isUppercase = true;
+      return e;
+    }
+  })
+
+  input.value = formatted.join("");
 }
 
 /**
@@ -133,9 +136,7 @@ if (navigator.share) {
 const actionShare = () => {
   if (navigator.share) {
     navigator.share({
-      // title: 'Web Fundamentals',
-      text: input.value,
-      // url: 'https://developers.google.com/web',
+      text: input.value
     })
       .then(() => console.log('Successful share'))
       .catch((error) => console.warn('Error sharing', error));
@@ -188,7 +189,12 @@ const bgRenderDeco = () => {
       let x = bg.clientWidth * Math.random();
       let y = bg.clientHeight * Math.random();
       let r = Math.round(Math.random() * 10);
-      let s = Math.random() - 0.6;
+      let s = 0;
+      if ( screen.width > 700 ) {
+        s = Math.random() * (0.5 - 0.2 + 0.1) + 0.2;
+      } else {
+        s = Math.random() * (0.15 - 0.025 + 0.1) + 0.025;
+      }
       deco.style.left = x + "px";
       deco.style.top = y + "px";
       deco.style.transform = `translate(-50%, -50%) rotate(${r}deg) scale(${s})`;
