@@ -93,18 +93,22 @@ const formatText = (format) => {
     input.value = normal;
     return;
   } else if ( format == "1" ) {
-    isUppercase = false;
-  } else if ( format == "2" ) {
     isUppercase = true;
+  } else if ( format == "2" ) {
+    isUppercase = false;
   }
 
   formatted = array.map((e,i) => {
-    if ( e  == " " ) return e;
-    if ( isUppercase ) {
-      isUppercase = false;
-      return e.toUpperCase();
+    if ( e == " " ) return e;
+    if ( e >= "a" ) {
+      if ( isUppercase ) {
+        isUppercase = false;
+        return e.toUpperCase();
+      } else {
+        isUppercase = true;
+        return e.toLowerCase();
+      }
     } else {
-      isUppercase = true;
       return e;
     }
   })
